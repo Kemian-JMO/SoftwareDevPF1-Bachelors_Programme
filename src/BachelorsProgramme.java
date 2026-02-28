@@ -2,31 +2,50 @@ import java.util.ArrayList;
 
 public class BachelorsProgramme {
     private boolean isCompleted = false;
-    private ArrayList<StudyActivity> studyActivities = new ArrayList<>();
+    private Programme[] programmes = new Programme[3];
     private Student student = null;
-    private int ects
+    private int ectsMax = 180;
 
-    public BachelorsProgramme() {
+    public BachelorsProgramme(Student student) {
+        this.student = student;
     }
 
     public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted() {
+        if (isCompleted) return true;
         int ectsAmount = 0;
-        for (StudyActivity studyActivity : studyActivities) {
-            ectsAmount += studyActivity.getEcts();
+        for (Programme programme : programmes) {
+            ectsAmount += programme.getEtcs();
         }
-        return ectsAmount ==
+        if (ectsAmount == ectsMax) {
+            isCompleted = true;
+            return true;
+        } else {
+            int i = ectsMax - ectsAmount;
+            if (i == 35) {
+                System.out.println("You are missing 35 ECTS!, you are probably missing a subject module.");
+            } else if (i == 70) {
+                System.out.println("You are missing 70 ECTS!, you are probably missing both of your subject modules.");
+            } else if (i == 110) {
+                System.out.println("You are missing 110 ECTS!, you are probably a basic studies program");
+            } else if (i == 145) {
+                System.out.println("You are missing 145 ECTS!, you are probably a basic studies program and a subject module");
+            } else if (i == 180) {
+                System.out.println("You are missing 180 ECTS!, you are probably a basic studies program and two subject modules");
+            }
+            return false;
+        }
     }
 
-    public ArrayList<StudyActivity> getStudyActivities() {
-        return studyActivities;
+    public void addBasicProgram(BasicStudiesProgramme basicStudiesProgramme){
+        programmes[0] = basicStudiesProgramme;
     }
 
-    public void setStudyActivities(ArrayList<StudyActivity> studyActivities) {
-        this.studyActivities = studyActivities;
+    public void addSubjectModule(SubjectModule subjectModule, int position){
+        if (position != 1 || position != 2) {
+            System.out.println("Invalid position!");
+            return;
+        }
+        programmes[position] = subjectModule;
     }
 
     public Student getStudent() {
@@ -36,4 +55,7 @@ public class BachelorsProgramme {
     public void setStudent(Student student) {
         this.student = student;
     }
+
+    
+
 }
