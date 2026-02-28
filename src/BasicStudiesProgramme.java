@@ -1,6 +1,6 @@
 public class BasicStudiesProgramme extends Programme{
-    public BasicStudiesProgramme(String name, String id, String semester) {
-        super(name, id, semester);
+    public BasicStudiesProgramme(String name, String id) {
+        super(name, id);
     }
 
     @Override
