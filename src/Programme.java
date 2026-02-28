@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Programme {
     private String name;
     private String id;
-    private ArrayList<StudyActivity> studyActivities = new ArrayList<>();
+    private final ArrayList<StudyActivity> studyActivities = new ArrayList<>();
     // All programmes have 3 things in common. Name, ID and study activities. Therefore we do private strings for name and ID whilst also having a arrayList of studyactivities for the programme.
 
 

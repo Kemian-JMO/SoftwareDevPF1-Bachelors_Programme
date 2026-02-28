@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class BachelorsProgramme {
     private boolean isCompleted = false;
-    private Programme[] programmes = new Programme[3];
+    private final Programme[] programmes = new Programme[3];
     private Student student = null;
-    private int ectsMax = 180;
+    private final int ectsMax = 180;
 
     public BachelorsProgramme(Student student) {
         this.student = student;
@@ -54,6 +54,7 @@ public class BachelorsProgramme {
 
     public void setStudent(Student student) {
         this.student = student;
+        student.setBachelorsProgramme(this);
     }
 
     

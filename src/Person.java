@@ -2,14 +2,15 @@ abstract class Person {
     private String email;
     private String firstName;
     private String lastName;
-    private String address;
+    private final String[] address;
     // all students have these semilarities
 
-    public Person(String email, String lastName, String firstName, String address) {
+    public Person(String email, String lastName, String firstName, String[] address) {
         this.email = email;
         this.lastName = lastName;
         this.firstName = firstName;
-        this.address = address;
+        this.address = new String[address.length];
+        System.arraycopy(address, 0, this.address, 0, address.length);
     }
 
 
@@ -21,12 +22,12 @@ abstract class Person {
         this.email = email;
     }
 
-    public String getAddress() {
+    public String[] getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String[] address) {
+        System.arraycopy(address, 0, this.address, 0, address.length);
     }
 
     public String getLastName() {
