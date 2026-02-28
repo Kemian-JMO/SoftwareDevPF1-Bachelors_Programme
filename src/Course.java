@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class Course extends StudyActivity{
-    public Course(String name, int ects, Programme programme, String id) {
-        super(name, ects, programme, id);
+    public Course(String name, int ects, String id) {
+        super(name, ects, id);
     }
 
     @Override

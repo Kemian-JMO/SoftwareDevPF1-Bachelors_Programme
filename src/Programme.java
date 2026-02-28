@@ -3,14 +3,12 @@ import java.util.ArrayList;
 public abstract class Programme {
     private String name;
     private String id;
-    private String semester;
     private ArrayList<StudyActivity> studyActivities = new ArrayList<>();
 
 
-    public Programme(String name, String id, String semester) {
+    public Programme(String name, String id) {
         this.name = name;
         this.id = id;
-        this.semester = semester;
     }
 
     public String getName() {
@@ -29,17 +27,26 @@ public abstract class Programme {
         this.id = id;
     }
 
-    public String getSemester() {
-        return semester;
-    }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
-
     public String toString() {
-        return "Name: " + getName()+"\nID: "+ getId() +"\nSemester: "+getSemester();
+        return "Name: " + getName()+"\nID: "+ getId();
     }
 
     public abstract boolean equals(Object obj);
+
+    public ArrayList<StudyActivity> getStudyActivities() {
+        return studyActivities;
+    }
+
+    public void addStudyActivities(StudyActivity studyActivities) {
+        this.studyActivities.add(studyActivities);
+        studyActivities.setProgramme(this);
+    }
+
+    public int getEtcs(){
+        int ects = 0;
+        for (StudyActivity studyActivity : studyActivities) {
+            ects += studyActivity.getEcts();
+        }
+        return ects;
+    }
 }

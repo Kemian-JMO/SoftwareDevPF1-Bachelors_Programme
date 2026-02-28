@@ -1,6 +1,6 @@
 public class Project extends StudyActivity{
-    public Project(String name, int ects, Programme programme, String id) {
-        super(name, ects, programme, id);
+    public Project(String name, int ects, String id) {
+        super(name, ects, id);
     }
 
     @Override

@@ -1,6 +1,6 @@
 public class SubjectModule extends Programme{
-    public SubjectModule(String name, String id, String semester) {
-        super(name, id, semester);
+    public SubjectModule(String name, String id) {
+        super(name, id);
     }
 
     @Override

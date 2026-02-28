@@ -4,10 +4,9 @@ public abstract class StudyActivity {
     private Programme programme;
     private String id;
 
-    public StudyActivity(String name, int ects, Programme programme, String id) {
+    public StudyActivity(String name, int ects, String id) {
         this.name = name;
         this.ects = ects;
-        this.programme = programme;
         this.id = id;
     }
 
