@@ -60,4 +60,12 @@ public class ProjectGroup {
     public void addStudent(Student student) {
         this.students.add(student);
     }
+
+    public boolean hasStudent(Student student) {
+        return this.students.contains(student);
+    }
+
+    public void removeStudent(Student student) {
+        this.students.remove(student);
+    }
 }
