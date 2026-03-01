@@ -1,12 +1,24 @@
 import java.util.ArrayList;
-
+/**
+ * Represents a project group.
+ * A project group belongs to a Project,
+ * contains multiple Students,
+ * and has one Supervisor.
+ */
 public class ProjectGroup {
     private Project project;
     private ArrayList<Student> students = new ArrayList<>();
     private String name;
     private Supervisor supervisor;
 
-
+    /**
+     * Constructor for ProjectGroup.
+     *
+     * @param project     The project the group belongs to
+     * @param student     First student added to the group
+     * @param name        Name of the group
+     * @param supervisor  Assigned supervisor
+     */
     public ProjectGroup(Project project, Student student, String name, Supervisor supervisor) {
         this.project = project;
         project.addProjectGroup(this);
@@ -50,7 +62,10 @@ public class ProjectGroup {
     public String toString() {
         return name;
     }
-
+    /**
+     * Defines when two ProjectGroup objects are equal.
+     * Currently: two groups are equal if their names are equal.
+     */
     public boolean equals(Object obj) {
         if (obj instanceof ProjectGroup pg){
             return this.name.equals(pg.name);

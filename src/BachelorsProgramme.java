@@ -1,15 +1,30 @@
 import java.util.ArrayList;
-
+/**
+ * Represents a Bachelor's Programme for a specific student.
+ *
+ * A bachelor consists of:
+ * - 1 BasicStudiesProgramme
+ * - 2 SubjectModules
+ *
+ * Total required ECTS = 180
+ */
 public class BachelorsProgramme {
     private boolean isCompleted = false;
     private final Programme[] programmes = new Programme[3];
     private Student student = null;
     private final int ectsMax = 180;
-
+    /**
+     * Constructor.
+     * Associates a student with the bachelor programme.
+     */
     public BachelorsProgramme(Student student) {
         this.student = student;
     }
-
+    /**
+     * Checks if the bachelor is completed.
+     *
+     * A bachelor is completed when total ECTS = 180.
+     */
     public boolean isCompleted() {
         if (isCompleted) return true;
         int ectsAmount = 0;
@@ -35,6 +50,9 @@ public class BachelorsProgramme {
             return false;
         }
     }
+// print messages depending on situation
+
+
 
     public void addBasicProgram(BasicStudiesProgramme basicStudiesProgramme){
         programmes[0] = basicStudiesProgramme;
