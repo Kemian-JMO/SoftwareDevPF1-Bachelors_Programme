@@ -8,26 +8,22 @@ abstract class Person {
     private String email;
     private String firstName;
     private String lastName;
-    private final String[] address;
-    // all students have these semilarities
-    /**
+    private String[] address;
+
+    /*
      * Constructor for Person.
-     *
-     * Uses defensive copying to protect internal address array.
      */
-    public Person(String email, String lastName, String firstName, String[] address) {
+    public Person(String email, String lastName, String firstName, String ... address) {
         this.email = email;
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = new String[address.length];
-        System.arraycopy(address, 0, this.address, 0, address.length);
+        for (int i = 0; i < address.length; i++) {
+            this.address[i] = address[i];
+        }
     }
 
-    /**
-     * Returns the address array.
-     * NOTE: This returns the internal array directly,
-     * which can break encapsulation.
-     */
+
     public String getEmail() {
         return email;
     }
@@ -40,8 +36,10 @@ abstract class Person {
         return address;
     }
 
-    public void setAddress(String[] address) {
-        System.arraycopy(address, 0, this.address, 0, address.length);
+    public void setAddress(String ... address) {
+        for (int i = 0; i < address.length; i++) {
+            this.address[i] = address[i];
+        }
     }
 
     public String getLastName() {

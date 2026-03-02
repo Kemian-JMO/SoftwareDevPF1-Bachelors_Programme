@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Abstract class representing a study activity.
  * A study activity can be a Course, Project, SubjectModule, etc.
@@ -9,6 +11,8 @@ public abstract class StudyActivity {
     private int ects;
     private Programme programme;
     private String id;
+    private ArrayList<Student> students = new ArrayList<>();
+
     /**
      * Constructor used when creating a StudyActivity.
      *
@@ -67,5 +71,11 @@ public abstract class StudyActivity {
      */
     public abstract boolean equals(Object obj);
 
+    public void addStudent(Student student) {
+        this.students.add(student);
+    }
 
+    public boolean hasStudent(Student student) {
+        return this.students.contains(student);
+    }
 }

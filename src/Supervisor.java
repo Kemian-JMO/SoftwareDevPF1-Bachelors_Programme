@@ -5,7 +5,7 @@ import java.util.Arrays;
  */
 public class Supervisor extends Person{
     private final String supervisorId;
-    private String intitutte;
+    private String institutte;
     private String title;
     /**
      * Constructor for Supervisor.

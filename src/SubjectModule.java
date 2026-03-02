@@ -2,7 +2,7 @@
  * SubjectModule is a concrete subclass of Programme.
  * It represents a specific module within an education programme.
  */
- class SubjectModule extends Programme{
+ public class SubjectModule extends Programme{
     /**
      * Constructor for SubjectModule.
      *

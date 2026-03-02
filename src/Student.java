@@ -4,7 +4,7 @@ public class Student extends Person{
     private int studentNum;
     private BachelorsProgramme bachelorsProgramme;
 
-    public Student(String email, String lastName, String firstName, String[] address, String studentNum) {
+    public Student(String email, String lastName, String firstName, String studentNum, String ... address) {
         super(email, lastName, firstName, address);
         this.studentNum = Integer.parseInt(studentNum);
     }
@@ -14,8 +14,12 @@ public class Student extends Person{
     }
 
     public void setBachelorsProgramme(BachelorsProgramme bachelorsProgramme) {
+        if (this.bachelorsProgramme == bachelorsProgramme) return;
+
         this.bachelorsProgramme = bachelorsProgramme;
-        bachelorsProgramme.setStudent(this);
+        if (bachelorsProgramme != null && bachelorsProgramme.getStudent() != this) {
+            bachelorsProgramme.setStudent(this);
+        }
     }
 
     public int getStudentNum() {

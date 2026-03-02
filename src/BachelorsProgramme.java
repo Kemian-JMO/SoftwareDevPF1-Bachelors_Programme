@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class BachelorsProgramme {
     private boolean isCompleted = false;
     private final Programme[] programmes = new Programme[3];
-    private Student student = null;
+    private Student student;
     private final int ectsMax = 180;
     /**
      * Constructor.
@@ -20,7 +20,13 @@ public class BachelorsProgramme {
     public BachelorsProgramme(Student student) {
         this.student = student;
     }
+
+    public Programme[] getProgrammes() {
+        return programmes;
+    }
+
     /**
+     *
      * Checks if the bachelor is completed.
      *
      * A bachelor is completed when total ECTS = 180.
@@ -53,17 +59,20 @@ public class BachelorsProgramme {
 // print messages depending on situation
 
 
-
+//this adds a basic studies programme to the array in 0th position of the array
     public void addBasicProgram(BasicStudiesProgramme basicStudiesProgramme){
         programmes[0] = basicStudiesProgramme;
+        basicStudiesProgramme.assignStudent(student);
     }
 
+    //this adds a subject module to the array in 1st or 2nd position of the array
     public void addSubjectModule(SubjectModule subjectModule, int position){
-        if (position != 1 || position != 2) {
+        if (position != 1 && position != 2) {
             System.out.println("Invalid position!");
             return;
         }
         programmes[position] = subjectModule;
+        subjectModule.assignStudent(student);
     }
 
     public Student getStudent() {
@@ -72,9 +81,5 @@ public class BachelorsProgramme {
 
     public void setStudent(Student student) {
         this.student = student;
-        student.setBachelorsProgramme(this);
     }
-
-    
-
 }

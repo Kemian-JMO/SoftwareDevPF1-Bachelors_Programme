@@ -11,7 +11,7 @@ public class ProjectGroup {
     private String name;
     private Supervisor supervisor;
 
-    /**
+    /*
      * Constructor for ProjectGroup.
      *
      * @param project     The project the group belongs to
@@ -20,9 +20,13 @@ public class ProjectGroup {
      * @param supervisor  Assigned supervisor
      */
     public ProjectGroup(Project project, Student student, String name, Supervisor supervisor) {
+        if (project == null || student == null || name == null || supervisor == null) {
+            throw new IllegalArgumentException("The parameters cannot be null.");
+        }
         this.project = project;
-        project.addProjectGroup(this);
-        this.students.add(student);
+        if (project.hasStudent(student)) {
+            this.students.add(student);
+        }else throw new IllegalArgumentException("The student is not in the project.");
         this.name = name;
         this.supervisor = supervisor;
     }
@@ -37,10 +41,6 @@ public class ProjectGroup {
 
     public ArrayList<Student> getStudents() {
         return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
     }
 
     public String getName() {
@@ -62,7 +62,8 @@ public class ProjectGroup {
     public String toString() {
         return name;
     }
-    /**
+
+    /*
      * Defines when two ProjectGroup objects are equal.
      * Currently: two groups are equal if their names are equal.
      */
@@ -73,7 +74,19 @@ public class ProjectGroup {
     }
 
     public void addStudent(Student student) {
-        this.students.add(student);
+        if (student == null) {
+            throw new IllegalArgumentException("The student cannot be null.");
+        }
+        if (this.project.hasStudent(student)) {
+            this.students.add(student);
+        } else {
+            throw new IllegalArgumentException("The student is not in the project.");
+        }
+
+    }
+
+    public boolean studentHaveProject(Student student){
+        return this.project.hasStudent(student);
     }
 
     public boolean hasStudent(Student student) {
