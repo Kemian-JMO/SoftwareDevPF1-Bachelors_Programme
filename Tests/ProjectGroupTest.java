@@ -4,91 +4,47 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProjectGroupTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getProject() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setProject() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getStudents() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setStudents() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getName() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setName() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getSupervisor() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void setSupervisor() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testToString() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testEquals() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addStudent() {
-    }
-
-    @Test
-    void testGetProject() {
-    }
-
-    @Test
-    void testSetProject() {
-    }
-
-    @Test
-    void testGetStudents() {
-    }
-
-    @Test
-    void testSetStudents() {
-    }
-
-    @Test
-    void testGetName() {
-    }
-
-    @Test
-    void testSetName() {
-    }
-
-    @Test
-    void testGetSupervisor() {
-    }
-
-    @Test
-    void testSetSupervisor() {
-    }
-
-    @Test
-    void testToString1() {
-    }
-
-    @Test
-    void testEquals1() {
-    }
-
-    @Test
-    void testAddStudent() {
     }
 }

@@ -1,26 +1,24 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BachelorsProgrammeTest {
 
-    @Test
+    @org.junit.jupiter.api.Test
     void isCompleted() {
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void addBasicProgram() {
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void addSubjectModule() {
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void getStudent() {
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void setStudent() {
     }
 }
