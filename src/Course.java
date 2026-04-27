@@ -9,20 +9,9 @@ public class Course extends StudyActivity{
      *
      * @param name Name of the course
      * @param ects Number of ECTS points
-     * @param id   Unique course ID
      */
-    public Course(String name, int ects, String id) {
-        super(name, ects, id);
+    public Course(String name, int ects, String programme) {
+        super(name, ects, programme);
     }
-    /**
-     * Defines when two Course objects are equal.
-     *
-     * Two Course objects are considered equal if their IDs are equal.
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Course c){
-            return Objects.equals(this.getId(), c.getId());
-        } else return false;
-    }
+
 }

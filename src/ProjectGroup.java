@@ -9,7 +9,7 @@ public class ProjectGroup {
     private Project project;
     private ArrayList<Student> students = new ArrayList<>();
     private String name;
-    private Supervisor supervisor;
+    private String supervisor;
 
     /*
      * Constructor for ProjectGroup.
@@ -19,14 +19,18 @@ public class ProjectGroup {
      * @param name        Name of the group
      * @param supervisor  Assigned supervisor
      */
-    public ProjectGroup(Project project, Student student, String name, Supervisor supervisor) {
+    public ProjectGroup(Project project, Student student, String name, String supervisor) {
         if (project == null || student == null || name == null || supervisor == null) {
             throw new IllegalArgumentException("The parameters cannot be null.");
         }
         this.project = project;
-        if (project.hasStudent(student)) {
-            this.students.add(student);
-        }else throw new IllegalArgumentException("The student is not in the project.");
+
+        ArrayList<StudyActivity> temp = student.getActivities();
+        for (int i = 0; i < temp.size(); i++){
+
+        }
+        addStudent(student);
+
         this.name = name;
         this.supervisor = supervisor;
     }
@@ -51,11 +55,11 @@ public class ProjectGroup {
         this.name = name;
     }
 
-    public Supervisor getSupervisor() {
+    public String getSupervisor() {
         return supervisor;
     }
 
-    public void setSupervisor(Supervisor supervisor) {
+    public void setSupervisor(String supervisor) {
         this.supervisor = supervisor;
     }
 
@@ -63,30 +67,18 @@ public class ProjectGroup {
         return name;
     }
 
-    /*
-     * Defines when two ProjectGroup objects are equal.
-     * Currently: two groups are equal if their names are equal.
-     */
-    public boolean equals(Object obj) {
-        if (obj instanceof ProjectGroup pg){
-            return this.name.equals(pg.name);
-        } else return false;
-    }
 
     public void addStudent(Student student) {
         if (student == null) {
             throw new IllegalArgumentException("The student cannot be null.");
         }
-        if (this.project.hasStudent(student)) {
-            this.students.add(student);
-        } else {
-            throw new IllegalArgumentException("The student is not in the project.");
+        if (hasStudent(student)) {
+            throw new IllegalArgumentException("The student is already in the project.");
         }
+        if (student.hasActivity(project)) {
+            this.students.add(student);
+        }else throw new IllegalArgumentException("The student is not in the project.");
 
-    }
-
-    public boolean studentHaveProject(Student student){
-        return this.project.hasStudent(student);
     }
 
     public boolean hasStudent(Student student) {
