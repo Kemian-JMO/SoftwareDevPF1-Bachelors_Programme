@@ -70,7 +70,7 @@ public class ProjectGroup {
 
     public void addStudent(Student student) {
         if (student == null) {
-            throw new IllegalArgumentException("The student cannot be null.");
+            throw new NullPointerException("The student cannot be null.");
         }
         if (hasStudent(student)) {
             throw new IllegalArgumentException("The student is already in the project.");

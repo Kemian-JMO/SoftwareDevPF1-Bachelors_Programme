@@ -84,11 +84,15 @@ public class Student{
         for (StudyActivity activity : activities) {
             ects += activity.getEcts();
         }
+        this.ects = ects;
         return ects;
     }
 
-    public boolean hasCompleted() {
-        return getEcts() >= maxects;
+    public void checkIfCompleted() {
+
+        if (getEcts() >= maxects){
+            System.out.println("You have enough ects points for a completed bachelors degree");
+        } else System.out.println("You are missing : " + getEcts() + " ects point, for a completed bachelors degree");
     }
 
     public boolean hasActivity(StudyActivity activity){
